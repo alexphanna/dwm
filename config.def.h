@@ -130,6 +130,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ 0,         XK_Print, spawn, SHCMD("~/scripts/screenshot.sh") },
+    { ShiftMask, XK_Print, spawn, SHCMD("~/scripts/screenshotsel.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -140,8 +142,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,         XK_Print, spawn, SHCMD("~/scripts/screenshot.sh") },
-    { ShiftMask, XK_Print, spawn, SHCMD("~/scripts/screenshotsel.sh") },
 };
 
 /* button definitions */
