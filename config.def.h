@@ -1,3 +1,4 @@
+#include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -86,6 +87,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_black, "-sf", col_white, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+static const char *up_vol[]   = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%+",   NULL };
+static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%-",   NULL };
+static const char *mute_vol[] = { "wpctl", "set-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -130,8 +135,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ 0,         XK_Print, spawn, SHCMD("~/scripts/screenshot.sh") },
-    { ShiftMask, XK_Print, spawn, SHCMD("~/scripts/screenshotsel.sh") },
+	{ 0,       						XK_Print,  spawn, 		   SHCMD("~/scripts/screenshot.sh") },
+    { ShiftMask, 					XK_Print,  spawn, 		   SHCMD("~/scripts/screenshotsel.sh") },
+	{ 0, XF86XK_AudioMute,        spawn, {.v = mute_vol } },
+	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = down_vol } },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -153,6 +161,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY|ShiftMask,         Button2,        togglefloating, {1} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
