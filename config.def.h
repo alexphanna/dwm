@@ -90,9 +90,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_black, "-sf", col_white, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+static const char *brighter[]   = { "xbacklight", "-perceived", "-inc", "5",   NULL };
+static const char *dimmer[] = { "xbacklight", "-perceived", "-dec", "5",   NULL };
 static const char *up_vol[]   = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%+",   NULL };
 static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%-",   NULL };
 static const char *mute_vol[] = { "wpctl", "set-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+static const char *screenshot[] = { "screenshot", NULL };
+static const char *screenshotsel[] = { "screenshotsel", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -138,11 +142,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ 0,       						XK_Print,  spawn, 		   SHCMD("screenshot") },
-    { ShiftMask, 					XK_Print,  spawn, 		   SHCMD("screenshotsel") },
+	{ 0, XK_Print, 				  spawn, {.v = screenshot } },
+    { ShiftMask, XK_Print,  	  spawn, {.v = screenshotsel } },
 	{ 0, XF86XK_AudioMute,        spawn, {.v = mute_vol } },
 	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = down_vol } },
 	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
+	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
+    { 0, XF86XK_MonBrightnessUp,   spawn, {.v = brighter } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
