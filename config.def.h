@@ -16,13 +16,13 @@ static const char *fonts[]          = { "FiraCode-Regular:size=10", "Material Ic
 static const char dmenufont[]       = "FiraCode-Regular:size=10";
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#FFFFFF";
-static const char col_cyan[]        = "#0080ff";
+static const char col_green[]        = "##004020";
 static const unsigned int baralpha = 0x00;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_black, col_black },
-	[SchemeSel]  = { col_cyan, col_black, col_black },
+	[SchemeNorm] = { col_black, col_white, col_white },
+	[SchemeSel]  = { col_green, col_white, col_white },
 };
 
 static const unsigned int alphas[][3]      = {
@@ -138,8 +138,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ 0,       						XK_Print,  spawn, 		   SHCMD("~/scripts/screenshot.sh") },
-    { ShiftMask, 					XK_Print,  spawn, 		   SHCMD("~/scripts/screenshotsel.sh") },
+	{ 0,       						XK_Print,  spawn, 		   SHCMD("screenshot") },
+    { ShiftMask, 					XK_Print,  spawn, 		   SHCMD("screenshotsel") },
 	{ 0, XF86XK_AudioMute,        spawn, {.v = mute_vol } },
 	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = down_vol } },
 	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
