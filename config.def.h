@@ -16,13 +16,13 @@ static const char *fonts[]          = { "FiraCode-Regular:size=10", "Material Sy
 static const char dmenufont[]       = "FiraCode-Regular:size=10";
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#FFFFFF";
-static const char col_green[]        = "##004020";
+static const char col_cyan[]        = "#0080ff";
 static const unsigned int baralpha = 0x00;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_black, col_white, col_white },
-	[SchemeSel]  = { col_green, col_white, col_white },
+	[SchemeNorm] = { col_white, col_black, col_black },
+	[SchemeSel]  = { col_cyan, col_black, col_black },
 };
 
 static const unsigned int alphas[][3]      = {
