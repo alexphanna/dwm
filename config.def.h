@@ -12,7 +12,7 @@ static const unsigned int gappov    = 16;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FiraCode-Regular:size=10", "Material Icons Round:size=10" };
+static const char *fonts[]          = { "FiraCode-Regular:size=10", "Material Symbols Round:size=10" };
 static const char dmenufont[]       = "FiraCode-Regular:size=10";
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#FFFFFF";
@@ -90,9 +90,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_black, "-sf", col_white, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *brighter[]   = { "xbacklight", "-perceived", "-inc", "5",   NULL };
+static const char *brighter[] = { "xbacklight", "-perceived", "-inc", "5",   NULL };
 static const char *dimmer[] = { "xbacklight", "-perceived", "-dec", "5",   NULL };
-static const char *up_vol[]   = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%+",   NULL };
+static const char *up_vol[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%+",   NULL };
 static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%-",   NULL };
 static const char *mute_vol[] = { "wpctl", "set-mute",   "@DEFAULT_SINK@", "toggle", NULL };
 static const char *screenshot[] = { "screenshot", NULL };
