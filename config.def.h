@@ -17,7 +17,7 @@ static const char dmenufont[]       = "FiraCode-Regular:size=10";
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#FFFFFF";
 static const char col_cyan[]        = "#0080ff";
-static const unsigned int baralpha = 0x00;
+static const unsigned int baralpha = 0.5;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
