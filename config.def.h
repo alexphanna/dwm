@@ -12,17 +12,17 @@ static const unsigned int gappov    = 16;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FiraCode-Regular:size=10", "Material Symbols Rounded:size=10" };
-static const char dmenufont[]       = "FiraCode-Regular:size=10";
+static const char *fonts[]          = { "SF Mono:style=semibold:size=10", "Material Symbols Rounded:size=10" };
+static const char dmenufont[]       = "SF Mono:style=semibold:size=10";
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#FFFFFF";
-static const char col_cyan[]        = "#FF0080";
+static const char col_accent[]        = "#8000FF";
 static const unsigned int baralpha = 0x00;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white, col_black, col_black },
-	[SchemeSel]  = { col_cyan, col_black, col_black },
+	[SchemeSel]  = { col_accent, col_black, col_black },
 };
 
 static const unsigned int alphas[][3]      = {
