@@ -90,8 +90,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_black, "-sf", col_accent, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *brighter[] = { "xbacklight", "-perceived", "-inc", "5",   NULL };
-static const char *dimmer[] = { "xbacklight", "-perceived", "-dec", "5",   NULL };
+static const char *brighter[] = { "xbacklight-log", "-inc",  NULL };
+static const char *dimmer[] = { "xbacklight-log", "-dec",  NULL };
 static const char *up_vol[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%+",   NULL };
 static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%-",   NULL };
 static const char *mute_vol[] = { "wpctl", "set-mute",   "@DEFAULT_SINK@", "toggle", NULL };
