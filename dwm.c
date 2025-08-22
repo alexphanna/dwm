@@ -524,8 +524,11 @@ buttonpress(XEvent *e)
 		if (i < LENGTH(tags)) {
 			click = ClkTagBar;
 			arg.ui = 1 << i;
-		} else if (ev->x < x + TEXTW(selmon->ltsymbol))
+		} 
+		/* commented out to remove the layout symbol hitbox
+		else if (ev->x < x + TEXTW(selmon->ltsymbol))
 			click = ClkLtSymbol;
+		*/
 		else
 			click = ClkStatusText;
 	} else if ((c = wintoclient(ev->window))) {
@@ -820,9 +823,11 @@ drawbar(Monitor *m)
 			drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
 		x += w;
 	}
+	/* commented out to remove layout symbol text
 	w = TEXTW(m->ltsymbol);
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
+	*/
 	if ((w = m->ww - tw - x) > bh) {
 			drw_setscheme(drw, scheme[SchemeNorm]);
 			drw_rect(drw, x, 0, w, bh, 1, 1);
