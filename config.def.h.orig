@@ -36,10 +36,15 @@ static const char *tags[] = { "", "", "", "", "", "", "", "
 static const char *occupiedtags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
- 	/* class      instance    title        				 tags mask  isfloating  isterminal   noswallow    monitor	float x,y,w,h         floatborderpx*/
-	{ "st",    	  NULL,    	 NULL,         				  0,        0,           1,          0,       	  -1,		 0,0,0,0,				  0 },
- 	{ "firefox",  NULL,      "Picture-in-Picture",       ~0,		1,			-1,      	 0,           -1,        1424,794,480,270,        0 },
- 	{ "mpv",  	  NULL,      NULL,      				 ~0,		1,			-1,      	 0,           -1,        1424,794,480,270,        0 },
+	/* xprop(1):
+	 *	WM_CLASS(STRING) = instance, class
+	 *	WM_NAME(STRING) = title
+	 */
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	{ "Firefox", NULL,     "Picture-in-Picture", ~0,         1,          0,           1,        -1 },
 };
 
 /* layout(s) */

@@ -6,6 +6,7 @@
 - [Swallow](https://dwm.suckless.org/patches/swallow/) - adds "window swallowing"
 - [Material Symbols](https://fonts.google.com/icons) radio buttons as tags and a different color for the current tag
 - No borders
+- [Float rules](https://dwm.suckless.org/patches/floatrules/) - for east picture-in-picture that follows user
 
 ## Installation
 ```bash
